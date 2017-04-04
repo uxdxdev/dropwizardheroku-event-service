@@ -1,8 +1,10 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 deploy:
   provider: heroku
   api_key:
-    secure: SPxxYzmUtTTF74DpI2gevXjcqesmyrnLnQUdRAZgk4KvE8jgyCEaupR0kBpNoWBeipVbrnZ/LCLDa4wdowK1qdwpziH7S8jC7KDuWsWRLkCjlBOn74/0p2L7wrd4dyvja3XWBFDKhc21YjbjP+16fS7ci/bVHOyoWubBZ/CC0gA=
+    secure: g//soAJpZkjKZAPFhsHHfckVjX66wRFSxkzcovMt0KaQdP1aCk2T+xRKESnSXyRrTNJ3d0ow8YRQvqLIbKJO7ObND1Yertz+waRZjZ6R3+A4X+zTrYUCux1A0TMp0QwRQ/zyMaE5DgAO/tdcxTHbAbULru+Q0RzW5i6vlN7AekQ=
   app: protected-garden-89563
+on:
+  repo: damorton/java-getting-started
