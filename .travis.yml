@@ -1,0 +1,5 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: SPxxYzmUtTTF74DpI2gevXjcqesmyrnLnQUdRAZgk4KvE8jgyCEaupR0kBpNoWBeipVbrnZ/LCLDa4wdowK1qdwpziH7S8jC7KDuWsWRLkCjlBOn74/0p2L7wrd4dyvja3XWBFDKhc21YjbjP+16fS7ci/bVHOyoWubBZ/CC0gA=
+  app: protected-garden-89563
