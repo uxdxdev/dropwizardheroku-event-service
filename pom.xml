@@ -16,7 +16,7 @@
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-hibernate</artifactId>
+			<artifactId>dropwizard-jdbi</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
