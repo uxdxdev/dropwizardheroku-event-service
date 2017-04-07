@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.pgrs</groupId>
-  <artifactId>dropwizard-app</artifactId>
+  <artifactId>dropwizard-heroku</artifactId>
   <version>1.0</version>
 
   <dependencies>
