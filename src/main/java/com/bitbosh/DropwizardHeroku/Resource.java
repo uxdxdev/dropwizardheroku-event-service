@@ -1,3 +1,5 @@
+package com.bitbosh.DropwizardHeroku;
+
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;

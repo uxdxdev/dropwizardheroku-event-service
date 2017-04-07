@@ -1,3 +1,5 @@
+package com.bitbosh.DropwizardHeroku;
+
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
