@@ -9,24 +9,24 @@ public class Resource {
   @GET
   @Path("/hello")
   public String hello() {
-    return "Hello";
+    return "Hello\n";
   }
 
   @GET
   @Path("/query")
   public String query(@QueryParam("message") String message) {
-    return "You passed " + message;
+    return "You passed " + message + "\n";
   }
 
   @POST
   @Path("/postbody")
   public String postBody(String message) {
-    return "You posted " + message;
+    return "You posted " + message + "\n";
   }
 
   @POST
   @Path("/postparam")
   public String postParam(@FormParam("message") String message) {
-    return "You posted " + message;
+    return "You posted " + message + "\n";
   }
 }
