@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="lib" path=".mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="target/helloworld-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="target/helloworld.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
