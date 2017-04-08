@@ -5,7 +5,3 @@
 https://protected-garden-89563.herokuapp.com/
 
 A Dropwizard Microservice deployed to Heroku with a PostgreSQL database.
-
-'''
-test
-'''
