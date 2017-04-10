@@ -20,12 +20,22 @@
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-testing</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
 	</dependencies>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
