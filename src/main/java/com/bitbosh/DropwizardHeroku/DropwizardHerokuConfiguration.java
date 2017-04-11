@@ -20,33 +20,39 @@ public class DropwizardHerokuConfiguration extends Configuration {
   /**
    * A getter for the database factory.
    *
-   * @return An instance of database factory deserialized from the configuration
-   *         file passed as a command-line argument to the application.
+   * @return An instance of database factory deserialized from the configuration file passed as a command-line argument
+   *         to the application.
    * @throws URISyntaxException
    */
   @JsonProperty("database")
   public DataSourceFactory getDataSourceFactory() {
 
-    // Overwrite the value read from the database property of the config.yml
-    // file and use the value provided by Heroku environment.
+    // Overwrite the value read from the database property of the config.yml file and use the value provided by Heroku
+    // environment.
     //
-    // When running the app locally using `heroku local` the remote postgres
-    // db url needs to be added to the .env file.
-    // Run `heroku config` and copy `DATABASE_URL: <database-url>` into the
-    // .env file.
+    // When running the app locally using `heroku local` the remote postgres db url needs to be added to the IDE or to
+    // your environment. Run `heroku config` to get the environment variable and its value. For local dev with Eclipse
+    // add DATABASE_URL and its value as a parameter in the Environment tab. For running the application with Heroku cli
+    // add DATABASE_URL and its value to the .bash_profile file and either restart your terminal or source it, i.e.
+    // source ~/.bash_profile
     //
     // For reference:
     // https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#connecting-to-a-database-remotely
     URI dbUri = null;
-    try {
-      dbUri = new URI(System.getenv("DATABASE_URL"));
-    } catch (URISyntaxException e) {
-      e.printStackTrace();
+    final String databaseUrl = System.getenv("DATABASE_URL");
+    if (databaseUrl != null) {
+      try {
+        dbUri = new URI(databaseUrl);
+      } catch (URISyntaxException e) {
+        System.out.println("Failed to create database URI.");
+        e.printStackTrace();
+      }
     }
 
     String username = dbUri.getUserInfo().split(":")[0];
     String password = dbUri.getUserInfo().split(":")[1];
-    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()
+        + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 
     this.database.setUser(username);
     this.database.setPassword(password);
