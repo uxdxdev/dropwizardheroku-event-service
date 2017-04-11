@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.bitbosh.DropwizardHeroku.repository.ExampleResourceDao;
+import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
 import com.bitbosh.DropwizardHeroku.resource.ExampleResource;
 
 import mockit.Mocked;
@@ -13,7 +13,7 @@ import mockit.Mocked;
 public class ResourceUnitTest {
 
   @Mocked
-  ExampleResourceDao resourceDao;
+  ExampleResourceRepository resourceDao;
 
   private ExampleResource resourceInstance = new ExampleResource(resourceDao);
 

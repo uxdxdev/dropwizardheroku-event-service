@@ -6,14 +6,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
-import com.bitbosh.DropwizardHeroku.repository.ExampleResourceDao;
+import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
 
 @Path("/")
 public class ExampleResource {
 
-  final ExampleResourceDao resourceDao;
+  final ExampleResourceRepository resourceDao;
 
-  public ExampleResource(ExampleResourceDao resourceDao) {
+  public ExampleResource(ExampleResourceRepository resourceDao) {
     this.resourceDao = resourceDao;
   }
 

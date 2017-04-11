@@ -2,9 +2,9 @@ package com.bitbosh.DropwizardHeroku.repository;
 
 import org.junit.Test;
 
-public class ResourceDaoUnitTest {
+public class ResourceRepositoryUnitTest {
 
-  private final ExampleResourceDao resourceDao = new ExampleResourceDao();
+  private final ExampleResourceRepository resourceRepository = new ExampleResourceRepository();
 
   @Test
   public void getResourceById_returnsCorrectResource_IfQueriedUsingId() {
