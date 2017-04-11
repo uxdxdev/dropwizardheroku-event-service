@@ -19,7 +19,7 @@ curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/example
 
 ```
 curl https://protected-garden-89563.herokuapp.com/api/event/{name}
-curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' http://localhost:8080/api/event
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' https://protected-garden-89563.herokuapp.com/api/event
 ```
 
 ## Project Structure
