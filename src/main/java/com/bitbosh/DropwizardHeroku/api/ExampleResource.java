@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.resource;
+package com.bitbosh.DropwizardHeroku.api;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -8,7 +8,7 @@ import javax.ws.rs.QueryParam;
 
 import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
 
-@Path("/")
+@Path("/example")
 public class ExampleResource {
 
   final ExampleResourceRepository resourceDao;

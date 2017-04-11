@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.resource;
+package com.bitbosh.DropwizardHeroku.api;
 
 import java.util.Collections;
 import java.util.Date;

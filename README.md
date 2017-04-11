@@ -6,14 +6,19 @@ https://protected-garden-89563.herokuapp.com/
 
 A Dropwizard Microservice deployed to Heroku with a PostgreSQL database.
 
-## API Endpoint test
+## API Endpoints for Example
+
+```
+curl https://protected-garden-89563.herokuapp.com/api/example/query?message=hello
+curl https://protected-garden-89563.herokuapp.com/api/example/hello
+curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/api/example/postparam
+curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/example/postbody
+```
+
+## API Endpoints for Event
 
 ```
 curl https://protected-garden-89563.herokuapp.com/api/events
-curl https://protected-garden-89563.herokuapp.com/api/query?message=hello
-curl https://protected-garden-89563.herokuapp.com/api/hello
-curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/api/postparam
-curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/postbody
 ```
 
 ## Project Structure
@@ -21,7 +26,7 @@ curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/postbod
 ### Example package names:
 
 ```
-com.bitbosh.DropwizardHeroku.resources (API, communicates will all parts of the Microservice and contains Domain objects)
+com.bitbosh.DropwizardHeroku.api (Resources & Representations. Communicates will all parts of the Microservice and contains Domain objects)
 com.bitbosh.DropwizardHeroku.service (Coordination across multiple Domain modules, multiple business transactions)
 com.bitbosh.DropwizardHeroku.domain (Domain Modules/Classes, this Microservices business logic)
 com.bitbosh.DropwizardHeroku.repositories (Dao, handles multiple Domain entities and has access to persistent storage)
@@ -42,7 +47,7 @@ com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Micro
     │   ├── java
     │   │   └── com
     │   │       └── DropwizardHeroku    
-    │   │           ├── resources
+    │   │           ├── api
     │   │           ├── service
     │   │           ├── domain
     │   │           ├── repositories
@@ -58,7 +63,7 @@ com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Micro
         ├── java
         │   └── com
         │       └── DropwizardHeroku
-        │           ├── resources
+        │           ├── api
         │           ├── service
         │           ├── domain
         │           ├── repositories

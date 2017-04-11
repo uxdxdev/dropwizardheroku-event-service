@@ -1,16 +1,16 @@
 
-package com.bitbosh.DropwizardHeroku.resource;
+package com.bitbosh.DropwizardHeroku.api;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.bitbosh.DropwizardHeroku.api.ExampleResource;
 import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
-import com.bitbosh.DropwizardHeroku.resource.ExampleResource;
 
 import mockit.Mocked;
 
-public class ResourceUnitTest {
+public class ExampleResourceUnitTest {
 
   @Mocked
   ExampleResourceRepository resourceDao;

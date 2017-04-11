@@ -2,9 +2,9 @@ package com.bitbosh.DropwizardHeroku;
 
 import org.skife.jdbi.v2.DBI;
 
+import com.bitbosh.DropwizardHeroku.api.EventResourceUnitTest;
+import com.bitbosh.DropwizardHeroku.api.ExampleResource;
 import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
-import com.bitbosh.DropwizardHeroku.resource.EventResource;
-import com.bitbosh.DropwizardHeroku.resource.ExampleResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
@@ -32,6 +32,6 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
     // Register each Resource with jersey and pass in the Dao so that it can
     // interact with the database.
     environment.jersey().register(new ExampleResource(resourceDao));
-    environment.jersey().register(new EventResource());
+    environment.jersey().register(new EventResourceUnitTest());
   }
 }

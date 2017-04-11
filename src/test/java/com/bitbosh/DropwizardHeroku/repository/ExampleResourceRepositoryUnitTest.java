@@ -2,7 +2,7 @@ package com.bitbosh.DropwizardHeroku.repository;
 
 import org.junit.Test;
 
-public class ResourceRepositoryUnitTest {
+public class ExampleResourceRepositoryUnitTest {
 
   private final ExampleResourceRepository resourceRepository = new ExampleResourceRepository();
 
