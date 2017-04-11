@@ -17,15 +17,15 @@ curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/postbody
 
 ## Project Structure
 
-###E xample package names:
+### Example package names:
 
 ```
-com.bitbosh.DropwizardHeroku.resources
-com.bitbosh.DropwizardHeroku.service
-com.bitbosh.DropwizardHeroku.domain
-com.bitbosh.DropwizardHeroku.repositories
-com.bitbosh.DropwizardHeroku.gateways
-com.bitbosh.DropwizardHeroku.client
+com.bitbosh.DropwizardHeroku.resources (API, communicates will all parts of the Microservice)
+com.bitbosh.DropwizardHeroku.service (Coordination across multiple Domain modules, multiple business transactions)
+com.bitbosh.DropwizardHeroku.domain (Domain Modules/Classes, this Microservices business logic)
+com.bitbosh.DropwizardHeroku.repositories (Dao, handles multiple Domain entities and has access to persistent storage)
+com.bitbosh.DropwizardHeroku.gateways (Encapsulates message passing and error handling with other Microservices)
+com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Microservices)
 ...
 ```
 
@@ -41,12 +41,12 @@ com.bitbosh.DropwizardHeroku.client
     │   ├── java
     │   │   └── com
     │   │       └── DropwizardHeroku    
-    │   │           ├── resources (API, communitcates will all parts of the Microservice)
-    │   │           ├── service (Coordination across multiple Domain modules, multiple business transactions)
-    │   │           ├── domain (Domain Modules/Classes, this Microservices business logic)
-    │   │           ├── repositories (Dao, handles multiple Domain entities and has access to persistent storage)
-    │   │           ├── gateways (Encapsulates message passing and error handling with other Microservices)
-    │   │           ├── client (HTTP Client to communicate with other Microservices)
+    │   │           ├── resources
+    │   │           ├── service
+    │   │           ├── domain
+    │   │           ├── repositories
+    │   │           ├── gateways
+    │   │           ├── client
     │   │           ├── DropwizardApplication.java
     │   │           ├── DropwizardApplicationConfiguration.java
     │   │           ├── ...
@@ -56,7 +56,7 @@ com.bitbosh.DropwizardHeroku.client
     └── test
         ├── java
         │   └── com
-        │       └── mydomain
+        │       └── DropwizardHeroku
         │           ├── resources
         │           ├── service
         │           ├── domain
