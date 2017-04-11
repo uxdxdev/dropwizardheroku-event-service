@@ -4,7 +4,6 @@ import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.DropwizardHeroku.api.EventResource;
 import com.bitbosh.DropwizardHeroku.api.ExampleResource;
-import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
 
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
@@ -27,11 +26,10 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
     // within the
     // MainConfiguration class.
     final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
-    final ExampleResourceRepository resourceDao = jdbi.onDemand(ExampleResourceRepository.class);
 
     // Register each Resource with jersey and pass in the Dao so that it can
     // interact with the database.
-    environment.jersey().register(new ExampleResource(resourceDao));
-    environment.jersey().register(new EventResource());
+    environment.jersey().register(new ExampleResource());
+    environment.jersey().register(new EventResource(jdbi));
   }
 }

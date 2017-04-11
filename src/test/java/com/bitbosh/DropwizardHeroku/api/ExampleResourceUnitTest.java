@@ -5,17 +5,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.bitbosh.DropwizardHeroku.api.ExampleResource;
-import com.bitbosh.DropwizardHeroku.repository.ExampleResourceRepository;
-
-import mockit.Mocked;
-
 public class ExampleResourceUnitTest {
 
-  @Mocked
-  ExampleResourceRepository resourceDao;
-
-  private ExampleResource resourceInstance = new ExampleResource(resourceDao);
+  private ExampleResource resourceInstance = new ExampleResource();
 
   @Test
   public void hello_returnsCorrectString_IfMethodInvoked() {

@@ -3,18 +3,29 @@ package com.bitbosh.DropwizardHeroku.api;
 import java.util.Date;
 
 public class Event {
-  private long id;
+  private int id;
   private String name;
   private String description;
   private String location;
   private Date date;
 
-  public long getId() {
-    return id;
+  public Event() {
+
   }
 
-  public void setId(long id) {
+  public Event(String name, String location, String description, Date date) {
+    this.name = name;
+    this.location = location;
+    this.description = description;
+    this.date = date;
+  }
+
+  public Event(int id, String name, String location, String description, Date date) {
     this.id = id;
+    this.name = name;
+    this.location = location;
+    this.description = description;
+    this.date = date;
   }
 
   public String getName() {
@@ -47,6 +58,14 @@ public class Event {
 
   public void setDate(Date date) {
     this.date = date;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
 }

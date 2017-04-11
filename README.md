@@ -1,12 +1,12 @@
-# Dropwizard Heroku Microservice
+# Dropwizard Heroku (Event) Microservice
 
 [![Build Status](https://travis-ci.org/damorton/dropwizard-heroku.svg?branch=master)](https://travis-ci.org/damorton/dropwizard-heroku)
 
 https://protected-garden-89563.herokuapp.com/
 
-A Dropwizard Microservice deployed to Heroku with a PostgreSQL database.
+A Dropwizard (Event) Microservice deployed to Heroku with a PostgreSQL database.
 
-## API Endpoints for Example
+## API Endpoints for ExampleResource
 
 ```
 curl https://protected-garden-89563.herokuapp.com/api/example/query?message=hello
@@ -15,10 +15,11 @@ curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/api
 curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/example/postbody
 ```
 
-## API Endpoints for Event
+## API Endpoints for EventResource
 
 ```
 curl https://protected-garden-89563.herokuapp.com/api/events
+curl https://protected-garden-89563.herokuapp.com/api/events/{name}
 ```
 
 ## Project Structure
