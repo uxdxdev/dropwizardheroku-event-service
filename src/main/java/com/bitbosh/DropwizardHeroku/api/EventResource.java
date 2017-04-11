@@ -11,7 +11,7 @@ import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.DropwizardHeroku.repository.EventDao;
 
-@Path("events")
+@Path("event")
 @Produces(MediaType.APPLICATION_JSON)
 public class EventResource {
 
@@ -33,5 +33,4 @@ public class EventResource {
   public void createEvent(Event event) {
     eventDao.createEvent(event.getName(), event.getLocation(), event.getLocation(), event.getDate());
   }
-
 }

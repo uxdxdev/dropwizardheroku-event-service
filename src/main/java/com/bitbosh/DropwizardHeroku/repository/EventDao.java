@@ -8,7 +8,6 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 
 import com.bitbosh.DropwizardHeroku.api.Event;
-import com.bitbosh.DropwizardHeroku.api.EventMapper;
 
 public interface EventDao {
   @SqlUpdate("create table if not exists event (id serial primary key, name varchar(100), location varchar(100), description varchar(100), date date)")
