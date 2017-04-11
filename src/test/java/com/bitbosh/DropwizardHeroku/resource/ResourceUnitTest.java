@@ -1,24 +1,26 @@
 
-package com.bitbosh.DropwizardHeroku;
+package com.bitbosh.DropwizardHeroku.resource;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
+
+import com.bitbosh.DropwizardHeroku.repository.ExampleResourceDao;
+import com.bitbosh.DropwizardHeroku.resource.ExampleResource;
+
+import mockit.Mocked;
 
 public class ResourceUnitTest {
 
-  private Resource resource;
+  @Mocked
+  ExampleResourceDao resourceDao;
 
-  @Before
-  public void setup() {
-    resource = new Resource();
-  }
+  private ExampleResource resourceInstance = new ExampleResource(resourceDao);
 
   @Test
-  public void hello_returnsHelloString_IfHelloMethodInvoked() {
+  public void hello_returnsCorrectString_IfMethodInvoked() {
     final String expectedResult = "Hello\n";
-    final String actualResult = resource.hello();
+    final String actualResult = resourceInstance.hello();
     assertEquals(expectedResult, actualResult);
   }
 
@@ -26,7 +28,7 @@ public class ResourceUnitTest {
   public void query_returnsCorrectStringWithMessage_IfNonEmptyStringMessageAsParameter() {
     final String message = "test";
     final String expectedResult = "You passed " + message + "\n";
-    final String actualResult = resource.query(message);
+    final String actualResult = resourceInstance.query(message);
     assertEquals(expectedResult, actualResult);
   }
 
@@ -34,7 +36,7 @@ public class ResourceUnitTest {
   public void query_returnsCorrectStringWithMessage_IfNullStringMessageAsParameter() {
     final String message = null;
     final String expectedResult = "You passed " + message + "\n";
-    final String actualResult = resource.query(message);
+    final String actualResult = resourceInstance.query(message);
     assertEquals(expectedResult, actualResult);
   }
 
@@ -42,7 +44,7 @@ public class ResourceUnitTest {
   public void postBody_returnsCorrectStringWithMessage_IfNonEmptyStringMessageAsParameter() {
     final String message = "test";
     final String expectedResult = "You posted " + message + "\n";
-    final String actualResult = resource.postBody(message);
+    final String actualResult = resourceInstance.postBody(message);
     assertEquals(expectedResult, actualResult);
   }
 
@@ -50,7 +52,7 @@ public class ResourceUnitTest {
   public void postBody_returnsCorrectStringWithMessage_IfNullStringMessageAsParameter() {
     final String message = null;
     final String expectedResult = "You posted " + message + "\n";
-    final String actualResult = resource.postBody(message);
+    final String actualResult = resourceInstance.postBody(message);
     assertEquals(expectedResult, actualResult);
   }
 
@@ -58,7 +60,7 @@ public class ResourceUnitTest {
   public void postParam_returnsCorrectStringWithMessage_IfNonEmptyStringMessageAsParameter() {
     final String message = "test";
     final String expectedResult = "You posted " + message + "\n";
-    final String actualResult = resource.postParam(message);
+    final String actualResult = resourceInstance.postParam(message);
     assertEquals(expectedResult, actualResult);
   }
 
@@ -66,7 +68,8 @@ public class ResourceUnitTest {
   public void postParam_returnsCorrectStringWithMessage_IfNullStringMessageAsParameter() {
     final String message = null;
     final String expectedResult = "You posted " + message + "\n";
-    final String actualResult = resource.postParam(message);
+    final String actualResult = resourceInstance.postParam(message);
     assertEquals(expectedResult, actualResult);
   }
+
 }

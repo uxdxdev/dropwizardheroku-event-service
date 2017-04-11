@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
 
-public class MainConfiguration extends Configuration {
+public class DropwizardHerokuConfiguration extends Configuration {
 
   @Valid
   @NotNull
@@ -25,7 +25,7 @@ public class MainConfiguration extends Configuration {
    * @throws URISyntaxException
    */
   @JsonProperty("database")
-  public DataSourceFactory getDataSourceFactory() throws URISyntaxException {
+  public DataSourceFactory getDataSourceFactory() {
 
     // Overwrite the value read from the database property of the config.yml
     // file and use the value provided by Heroku environment.
@@ -37,7 +37,12 @@ public class MainConfiguration extends Configuration {
     //
     // For reference:
     // https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#connecting-to-a-database-remotely
-    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    URI dbUri = null;
+    try {
+      dbUri = new URI(System.getenv("DATABASE_URL"));
+    } catch (URISyntaxException e) {
+      e.printStackTrace();
+    }
 
     String username = dbUri.getUserInfo().split(":")[0];
     String password = dbUri.getUserInfo().split(":")[1];
