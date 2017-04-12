@@ -10,7 +10,11 @@ public class Event {
   private Date date;
 
   public Event() {
-
+    id = 0;
+    name = "";
+    description = "";
+    location = "";
+    date = new Date();
   }
 
   public Event(String name, String location, String description, Date date) {

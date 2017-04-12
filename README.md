@@ -1,6 +1,6 @@
 # Dropwizard Heroku (Event) Microservice
 
-[![Build Status](https://travis-ci.org/damorton/dropwizard-heroku.svg?branch=master)](https://travis-ci.org/damorton/dropwizard-heroku)
+[![Build Status](https://travis-ci.org/damorton/dropwizard-heroku.svg?branch=master)](https://travis-ci.org/damorton/dropwizard-heroku)[![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizard-heroku/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizard-heroku?branch=master)
 
 https://protected-garden-89563.herokuapp.com/
 
