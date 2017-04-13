@@ -75,6 +75,6 @@ com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Micro
             └── fixtures
 ```
 
-# References
+# Tutorial
 
-https://www.sitepoint.com/tutorial-getting-started-dropwizard/
+http://www.bitbosh.com/2017/04/microservices-with-dropwizard-on-heroku.html
