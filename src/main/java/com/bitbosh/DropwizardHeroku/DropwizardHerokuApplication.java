@@ -7,6 +7,7 @@ import com.bitbosh.DropwizardHeroku.api.ExampleResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
+import io.dropwizard.jersey.setup.JerseyEnvironment;
 import io.dropwizard.setup.Environment;
 
 public class DropwizardHerokuApplication extends Application<DropwizardHerokuConfiguration> {
@@ -20,7 +21,7 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
 
     // Create a DBIFactory to build instances of Dao classes for each Resource
     // in the application.
-    final DBIFactory factory = new DBIFactory();
+    final DBIFactory factory = createDbiFactory();
 
     // The database configuration details are read from the DataSourcFactory
     // within the
@@ -29,7 +30,12 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
 
     // Register each Resource with jersey and pass in the Dao so that it can
     // interact with the database.
-    environment.jersey().register(new ExampleResource());
-    environment.jersey().register(new EventResource(jdbi));
+    JerseyEnvironment jerseyEnvironment = environment.jersey();
+    jerseyEnvironment.register(new ExampleResource());
+    jerseyEnvironment.register(new EventResource(jdbi));
+  }
+
+  private DBIFactory createDbiFactory() {
+    return new DBIFactory();
   }
 }
