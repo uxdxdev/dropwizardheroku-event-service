@@ -25,7 +25,6 @@ public class DropwizardHerokuConfigurationUnitTest {
     String hostPortString = host + ":" + port + path;
     String expectedDbUrl = "jdbc:postgresql://" + host + ':' + port + path
         + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-    ;
 
     new Expectations() {
       {
@@ -66,13 +65,25 @@ public class DropwizardHerokuConfigurationUnitTest {
   }
 
   @Test
-  public void setDataSourceFactory_setsDataSourceFactoryCorrectly_IfSetExplicitlyUsingApi() throws URISyntaxException {
+  public void setDataSourceFactory_setsDataSourceFactoryCorrectly_IfSetExplicitlyUsingApi(@Mocked final System unused)
+      throws URISyntaxException {
     DataSourceFactory dataSourceFactory = new DataSourceFactory();
+
     String expectedUser = "testUser";
+
+    new Expectations() {
+      {
+        System.getenv(anyString);
+        result = null;
+      }
+    };
+
     dataSourceFactory.setUser(expectedUser);
     dropwizardConfig.setDataSourceFactory(dataSourceFactory);
+
     DataSourceFactory returnedDataSourceFactory = dropwizardConfig.getDataSourceFactory();
     String actualUser = returnedDataSourceFactory.getUser();
+
     assertEquals(expectedUser, actualUser);
   }
 
