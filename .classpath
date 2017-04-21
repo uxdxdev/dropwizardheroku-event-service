@@ -18,6 +18,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="target/dropwizard-heroku-1.0.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
