@@ -11,7 +11,7 @@ import com.bitbosh.DropwizardHeroku.api.Event;
 
 public interface EventDao {
   @SqlUpdate("create table if not exists event (id serial primary key, name varchar(100), location varchar(100), description varchar(100), date date)")
-  void createEventTable();
+  void createEventDatabaseTable();
 
   @SqlUpdate("insert into event (name, location, description, date) values (:name, :location, :description, :date)")
   void createEvent(@Bind("name") String name, @Bind("location") String location,

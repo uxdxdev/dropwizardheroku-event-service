@@ -1,5 +1,7 @@
 package com.bitbosh.DropwizardHeroku;
 
+import java.net.URISyntaxException;
+
 import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.DropwizardHeroku.api.EventResource;
@@ -17,7 +19,7 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
   }
 
   @Override
-  public void run(DropwizardHerokuConfiguration configuration, Environment environment) {
+  public void run(DropwizardHerokuConfiguration configuration, Environment environment) throws URISyntaxException {
 
     // Create a DBIFactory to build instances of Dao classes for each Resource
     // in the application.

@@ -25,7 +25,7 @@ public class DropwizardHerokuConfiguration extends Configuration {
    * @throws URISyntaxException
    */
   @JsonProperty("database")
-  public DataSourceFactory getDataSourceFactory() {
+  public DataSourceFactory getDataSourceFactory() throws URISyntaxException {
 
     // Overwrite the value read from the database property of the config.yml file and use the value provided by Heroku
     // environment.
@@ -41,22 +41,19 @@ public class DropwizardHerokuConfiguration extends Configuration {
     URI dbUri = null;
     final String databaseUrl = System.getenv("DATABASE_URL");
     if (databaseUrl != null) {
-      try {
-        dbUri = new URI(databaseUrl);
-      } catch (URISyntaxException e) {
-        System.out.println("Failed to create database URI.");
-        e.printStackTrace();
-      }
+      dbUri = new URI(databaseUrl);
     }
 
-    String username = dbUri.getUserInfo().split(":")[0];
-    String password = dbUri.getUserInfo().split(":")[1];
-    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()
-        + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+    if (dbUri != null) {
+      String username = dbUri.getUserInfo().split(":")[0];
+      String password = dbUri.getUserInfo().split(":")[1];
+      String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()
+          + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
 
-    this.database.setUser(username);
-    this.database.setPassword(password);
-    this.database.setUrl(dbUrl);
+      this.database.setUser(username);
+      this.database.setPassword(password);
+      this.database.setUrl(dbUrl);
+    }
     return database;
   }
 

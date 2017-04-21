@@ -19,7 +19,7 @@ public class EventResource {
 
   public EventResource(DBI jdbi) {
     eventDao = jdbi.onDemand(EventDao.class);
-    eventDao.createEventTable();
+    eventDao.createEventDatabaseTable();
   }
 
   @GET
