@@ -19,7 +19,7 @@ import mockit.Mocked;
 public class DropwizardHerokuApplicationUnitTest {
 
   @Test
-  public void main_verifyRunCall_IfApplicationStarted() throws Exception {
+  public void main_verifyMainCall_IfApplicationStarted() throws Exception {
     String expected = "test";
 
     // Mock the ctor for DropwizardHerokuApplication super class Application<DropwizardHerokuConfiguration>

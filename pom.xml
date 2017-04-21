@@ -11,7 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<dropwizard.version>1.0.5</dropwizard.version>
+		<dropwizard.version>1.0.7</dropwizard.version>
 		<mainClass>com.bitbosh.DropwizardHeroku.DropwizardHerokuApplication</mainClass>
 	</properties>
 
@@ -23,12 +23,12 @@
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-jdbi</artifactId>
+			<artifactId>dropwizard-core</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-core</artifactId>
+			<artifactId>dropwizard-jdbi</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
