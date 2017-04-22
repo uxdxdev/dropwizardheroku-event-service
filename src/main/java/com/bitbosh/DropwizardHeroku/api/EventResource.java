@@ -1,5 +1,7 @@
 package com.bitbosh.DropwizardHeroku.api;
 
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,7 +13,7 @@ import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.DropwizardHeroku.repository.EventDao;
 
-@Path("event")
+@Path("/events")
 @Produces(MediaType.APPLICATION_JSON)
 public class EventResource {
 
@@ -20,6 +22,13 @@ public class EventResource {
   public EventResource(DBI jdbi) {
     eventDao = jdbi.onDemand(EventDao.class);
     eventDao.createEventDatabaseTable();
+  }
+
+  @GET
+  public ApiResponse getEvents() {
+    List<Event> eventList = eventDao.getEvents();
+    ApiResponse response = new ApiResponse(eventList);
+    return response;
   }
 
   @GET

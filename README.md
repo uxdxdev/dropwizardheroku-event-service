@@ -4,22 +4,23 @@
 
 https://protected-garden-89563.herokuapp.com/
 
-A Dropwizard (Event) Microservice deployed to Heroku with a PostgreSQL database.
+A Dropwizard (Event) Microservice deployed to Heroku with a hosted PostgreSQL database.
 
 ## API Endpoints for ExampleResource
 
 ```
-curl https://protected-garden-89563.herokuapp.com/api/example/query?message=hello
-curl https://protected-garden-89563.herokuapp.com/api/example/hello
-curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/api/example/postparam
-curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/api/example/postbody
+curl https://protected-garden-89563.herokuapp.com/v1/api/example/query?message=hello
+curl https://protected-garden-89563.herokuapp.com/v1/api/example/hello
+curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/v1/api/example/postparam
+curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/v1/api/example/postbody
 ```
 
 ## API Endpoints for EventResource
 
 ```
-curl https://protected-garden-89563.herokuapp.com/api/event/{name}
-curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' https://protected-garden-89563.herokuapp.com/api/event
+curl https://protected-garden-89563.herokuapp.com/v1/api/events
+curl https://protected-garden-89563.herokuapp.com/v1/api/events/{name}
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' https://protected-garden-89563.herokuapp.com/v1/api/events
 ```
 
 ## Project Structure
