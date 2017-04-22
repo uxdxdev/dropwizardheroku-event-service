@@ -1,6 +1,7 @@
 package com.bitbosh.DropwizardHeroku.repository;
 
 import java.util.Date;
+import java.util.List;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
@@ -20,4 +21,8 @@ public interface EventDao {
   @Mapper(EventMapper.class)
   @SqlQuery("select * from event where name = :name")
   Event getEventByName(@Bind("name") String name);
+
+  @Mapper(EventMapper.class)
+  @SqlQuery("select * from event")
+  List<Event> getEvents();
 }

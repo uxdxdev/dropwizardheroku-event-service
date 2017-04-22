@@ -1,5 +1,11 @@
 package com.bitbosh.DropwizardHeroku.api;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.Test;
 import org.skife.jdbi.v2.DBI;
 
@@ -108,5 +114,69 @@ public class EventResourceUnitTest {
 
     EventResource eventResource = new EventResource(jdbi);
     eventResource.createEvent(event);
+  }
+
+  @Test
+  public void getEvents_returnsEventList_IfEventListInjectedNotNull(@Mocked DBI jdbi, @Mocked EventDao eventDao) {
+
+    List<Event> expectedList = new ArrayList<Event>();
+    String expectedName = "testName";
+    String expectedLocation = "testLocation";
+    String expectedDescription = "testDescription";
+    Date date = new Date();
+
+    expectedList.add(new Event("testName", "testLocation", "testDescription", date));
+
+    new Expectations() {
+      {
+        jdbi.onDemand(withAny(EventDao.class));
+        result = eventDao;
+
+        eventDao.createEventDatabaseTable();
+        times = 1;
+
+        eventDao.getEvents();
+        result = expectedList;
+        times = 1;
+      }
+    };
+
+    EventResource eventResource = new EventResource(jdbi);
+    ApiResponse response = eventResource.getEvents();
+    List<Event> actualList = (List<Event>) response.getList();
+
+    String actualName = actualList.get(0).getName();
+    String actualLocation = actualList.get(0).getLocation();
+    String actualDescription = actualList.get(0).getDescription();
+
+    assertEquals(expectedName, actualName);
+    assertEquals(expectedLocation, actualLocation);
+    assertEquals(expectedDescription, actualDescription);
+  }
+
+  @Test
+  public void getEvents_returnsNull_IfEventListInjectedNull(@Mocked DBI jdbi, @Mocked EventDao eventDao) {
+
+    List<Event> expectedList = null;
+
+    new Expectations() {
+      {
+        jdbi.onDemand(withAny(EventDao.class));
+        result = eventDao;
+
+        eventDao.createEventDatabaseTable();
+        times = 1;
+
+        eventDao.getEvents();
+        result = expectedList;
+        times = 1;
+      }
+    };
+
+    EventResource eventResource = new EventResource(jdbi);
+    ApiResponse response = eventResource.getEvents();
+    List<Event> actualList = (List<Event>) response.getList();
+
+    assertEquals(expectedList, actualList);
   }
 }
