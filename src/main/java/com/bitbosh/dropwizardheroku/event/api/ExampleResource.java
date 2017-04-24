@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.api;
+package com.bitbosh.dropwizardheroku.event.api;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;

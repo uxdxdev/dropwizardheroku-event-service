@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.repository;
+package com.bitbosh.dropwizardheroku.event.repository;
 
 import java.util.Date;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 
-import com.bitbosh.DropwizardHeroku.api.Event;
+import com.bitbosh.dropwizardheroku.event.api.Event;
 
 public interface EventDao {
   @SqlUpdate("create table if not exists event (id serial primary key, name varchar(100), location varchar(100), description varchar(100), date date)")

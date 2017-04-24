@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.repository;
+package com.bitbosh.dropwizardheroku.event.repository;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +9,8 @@ import java.util.Date;
 import org.junit.Test;
 import org.skife.jdbi.v2.StatementContext;
 
-import com.bitbosh.DropwizardHeroku.api.Event;
+import com.bitbosh.dropwizardheroku.event.api.Event;
+import com.bitbosh.dropwizardheroku.event.repository.EventMapper;
 
 import mockit.Expectations;
 import mockit.Mocked;

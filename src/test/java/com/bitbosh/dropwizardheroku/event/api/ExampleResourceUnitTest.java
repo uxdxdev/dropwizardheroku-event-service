@@ -1,9 +1,11 @@
 
-package com.bitbosh.DropwizardHeroku.api;
+package com.bitbosh.dropwizardheroku.event.api;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.bitbosh.dropwizardheroku.event.api.ExampleResource;
 
 public class ExampleResourceUnitTest {
 

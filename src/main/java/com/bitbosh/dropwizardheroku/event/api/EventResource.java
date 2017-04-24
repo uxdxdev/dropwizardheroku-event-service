@@ -1,4 +1,4 @@
-package com.bitbosh.DropwizardHeroku.api;
+package com.bitbosh.dropwizardheroku.event.api;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.skife.jdbi.v2.DBI;
 
-import com.bitbosh.DropwizardHeroku.repository.EventDao;
+import com.bitbosh.dropwizardheroku.event.repository.EventDao;
 
 @Path("/events")
 @Produces(MediaType.APPLICATION_JSON)
