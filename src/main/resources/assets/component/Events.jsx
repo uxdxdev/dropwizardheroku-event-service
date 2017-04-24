@@ -8,7 +8,7 @@ class Events extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8080/v1/api/events`)
+    axios.get(`https://dropwizardheroku-event-service.herokuapp.com/v1/api/events`)
       .then(res => {
         const events = res.data.list;
         this.setState({ events });
