@@ -28,12 +28,12 @@ curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description
 ### Example package names:
 
 ```
-com.bitbosh.DropwizardHeroku.api (Resources & Representations. Communicates will all parts of the Microservice and contains Domain objects)
-com.bitbosh.DropwizardHeroku.service (Coordination across multiple Domain modules, multiple business transactions)
-com.bitbosh.DropwizardHeroku.domain (Domain Modules/Classes, this Microservices business logic)
-com.bitbosh.DropwizardHeroku.repositories (Dao, handles multiple Domain entities and has access to persistent storage)
-com.bitbosh.DropwizardHeroku.gateways (Encapsulates message passing and error handling with other Microservices)
-com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Microservices)
+com.bitbosh.dropwizardheroku.api (Resources & Representations. Communicates will all parts of the Microservice and contains Domain objects)
+com.bitbosh.dropwizardheroku.service (Coordination across multiple Domain modules, multiple business transactions)
+com.bitbosh.dropwizardheroku.domain (Domain Modules/Classes, this Microservices business logic)
+com.bitbosh.dropwizardheroku.repositories (Dao, handles multiple Domain entities and has access to persistent storage)
+com.bitbosh.dropwizardheroku.gateways (Encapsulates message passing and error handling with other Microservices)
+com.bitbosh.dropwizardheroku.client (HTTP Client to communicate with other Microservices)
 ...
 ```
 
@@ -48,15 +48,15 @@ com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Micro
     ├── main
     │   ├── java
     │   │   └── com
-    │   │       └── DropwizardHeroku    
+    │   │       └── dropwizardheroku    
     │   │           ├── api
     │   │           ├── service
     │   │           ├── domain
     │   │           ├── repositories
     │   │           ├── gateways
     │   │           ├── client
-    │   │           ├── DropwizardHerokuApplication.java
-    │   │           ├── DropwizardHerokuConfiguration.java
+    │   │           ├── Main.java
+    │   │           ├── ApplicationConfiguration.java
     │   │           ├── ...
     │   └── resources
     │       ├── assets
@@ -64,13 +64,15 @@ com.bitbosh.DropwizardHeroku.client (HTTP Client to communicate with other Micro
     └── test
         ├── java
         │   └── com
-        │       └── DropwizardHeroku
+        │       └── dropwizardheroku
         │           ├── api
         │           ├── service
         │           ├── domain
         │           ├── repositories
         │           ├── gateways
         │           ├── client
+        │           ├── MainUnitTest.java
+        │           ├── ApplicationConfigurationUnitTest.java
         │           ├── ...
         └── resources
             └── fixtures

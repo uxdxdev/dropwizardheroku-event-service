@@ -1,10 +1,12 @@
-package com.bitbosh.DropwizardHeroku.api;
+package com.bitbosh.dropwizardheroku.event.api;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
 import org.junit.Test;
+
+import com.bitbosh.dropwizardheroku.event.api.Event;
 
 public class EventUnitTest {
 
