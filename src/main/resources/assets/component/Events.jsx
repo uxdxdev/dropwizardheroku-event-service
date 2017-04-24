@@ -1,4 +1,3 @@
-
 class Events extends React.Component {
   constructor(props) {
     super(props);
@@ -29,8 +28,3 @@ class Events extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Events/>,
-  document.getElementById('root')
-);
