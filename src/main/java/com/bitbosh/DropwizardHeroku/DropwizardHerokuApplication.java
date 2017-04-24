@@ -45,6 +45,6 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
 
   @Override
   public void initialize(Bootstrap<DropwizardHerokuConfiguration> configuration) {
-    configuration.addBundle(new AssetsBundle("/assets", "/", "index.html"));
+    configuration.addBundle(new AssetsBundle("/assets", "/"));
   }
 }
