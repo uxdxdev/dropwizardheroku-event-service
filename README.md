@@ -1,10 +1,10 @@
-# Dropwizard Heroku (Event) Microservice
+# Dropwizard Heroku Event Microservice
 
 [![Build Status](https://travis-ci.org/damorton/dropwizard-heroku.svg?branch=master)](https://travis-ci.org/damorton/dropwizard-heroku) [![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizard-heroku/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizard-heroku?branch=master)
 
 https://protected-garden-89563.herokuapp.com/
 
-A Dropwizard (Event) Microservice deployed to Heroku with a hosted PostgreSQL database.
+A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreSQL database.
 
 ## API Endpoints for ExampleResource
 

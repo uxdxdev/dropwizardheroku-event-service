@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bitbosh</groupId>
-	<artifactId>dropwizard-heroku</artifactId>
-	<name>Dropwizard Heroku Application</name>
+	<artifactId>dropwizardheroku_event_service</artifactId>
+	<name>Dropwizard Heroku Event Service</name>
 	<version>1.2</version>
 
 	<properties>
