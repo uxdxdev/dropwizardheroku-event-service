@@ -8,8 +8,10 @@ import com.bitbosh.DropwizardHeroku.api.EventResource;
 import com.bitbosh.DropwizardHeroku.api.ExampleResource;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.jersey.setup.JerseyEnvironment;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class DropwizardHerokuApplication extends Application<DropwizardHerokuConfiguration> {
@@ -39,5 +41,10 @@ public class DropwizardHerokuApplication extends Application<DropwizardHerokuCon
 
   private DBIFactory createDbiFactory() {
     return new DBIFactory();
+  }
+
+  @Override
+  public void initialize(Bootstrap<DropwizardHerokuConfiguration> configuration) {
+    configuration.addBundle(new AssetsBundle("/assets", "/"));
   }
 }

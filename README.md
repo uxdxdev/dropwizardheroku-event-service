@@ -1,26 +1,26 @@
-# Dropwizard Heroku (Event) Microservice
+# Dropwizard Heroku Event Microservice
 
-[![Build Status](https://travis-ci.org/damorton/dropwizard-heroku.svg?branch=master)](https://travis-ci.org/damorton/dropwizard-heroku) [![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizard-heroku/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizard-heroku?branch=master)
+[![Build Status](https://travis-ci.org/damorton/dropwizardheroku-event-service.svg?branch=master)](https://travis-ci.org/damorton/dropwizardheroku-event-service) [![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizardheroku-event-service/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizardheroku-event-service?branch=master)
 
-https://protected-garden-89563.herokuapp.com/
+https://dropwizardheroku-event-service.herokuapp.com//
 
-A Dropwizard (Event) Microservice deployed to Heroku with a hosted PostgreSQL database.
+A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreSQL database.
 
 ## API Endpoints for ExampleResource
 
 ```
-curl https://protected-garden-89563.herokuapp.com/v1/api/example/query?message=hello
-curl https://protected-garden-89563.herokuapp.com/v1/api/example/hello
-curl -X POST -d 'message=hello' https://protected-garden-89563.herokuapp.com/v1/api/example/postparam
-curl -X POST -d 'hello' https://protected-garden-89563.herokuapp.com/v1/api/example/postbody
+curl https://dropwizardheroku-event-service.herokuapp.com//v1/api/example/query?message=hello
+curl https://dropwizardheroku-event-service.herokuapp.com//v1/api/example/hello
+curl -X POST -d 'message=hello' https://dropwizardheroku-event-service.herokuapp.com//v1/api/example/postparam
+curl -X POST -d 'hello' https://dropwizardheroku-event-service.herokuapp.com//v1/api/example/postbody
 ```
 
 ## API Endpoints for EventResource
 
 ```
-curl https://protected-garden-89563.herokuapp.com/v1/api/events
-curl https://protected-garden-89563.herokuapp.com/v1/api/events/{name}
-curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' https://protected-garden-89563.herokuapp.com/v1/api/events
+curl https://dropwizardheroku-event-service.herokuapp.com//v1/api/events
+curl https://dropwizardheroku-event-service.herokuapp.com//v1/api/events/{name}
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Sesh","description":"Drinkys","location":"Toms","date":"2017-04-11"}' https://dropwizardheroku-event-service.herokuapp.com//v1/api/events
 ```
 
 ## Project Structure

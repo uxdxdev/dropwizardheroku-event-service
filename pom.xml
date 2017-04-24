@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.bitbosh</groupId>
-	<artifactId>dropwizard-heroku</artifactId>
-	<name>Dropwizard Heroku Application</name>
+	<artifactId>dropwizardheroku-event-service</artifactId>
+	<name>Dropwizard Heroku Event Service</name>
 	<version>1.2</version>
 
 	<properties>
@@ -34,6 +34,11 @@
 		<dependency>
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-testing</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-assets</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
