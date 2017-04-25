@@ -2,6 +2,9 @@ package com.bitbosh.dropwizardheroku.event;
 
 import static org.junit.Assert.assertTrue;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
+
 import org.junit.Test;
 import org.skife.jdbi.v2.DBI;
 
@@ -13,6 +16,7 @@ import io.dropwizard.Application;
 import io.dropwizard.db.PooledDataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.jersey.setup.JerseyEnvironment;
+import io.dropwizard.jetty.setup.ServletEnvironment;
 import io.dropwizard.setup.Environment;
 import mockit.Mock;
 import mockit.MockUp;
@@ -51,7 +55,7 @@ public class MainUnitTest {
 
   @Test
   public void run_verifyRunCall_IfApplicationStarted(@Mocked ApplicationConfiguration configuration,
-      @Mocked Environment environment, @Mocked JerseyEnvironment jerseyEnv) throws Exception {
+      @Mocked Environment environment, @Mocked JerseyEnvironment jerseyEnv, @Mocked ServletEnvironment servletEnv, @Mocked FilterRegistration.Dynamic dynFilter) throws Exception {
 
     // Mock the ctor for DropwizardHerokuApplication super class Application<DropwizardHerokuConfiguration>
     new MockUp<Application<ApplicationConfiguration>>() {
@@ -73,7 +77,19 @@ public class MainUnitTest {
       public JerseyEnvironment jersey() {
         return jerseyEnv;
       }
+      
+      @Mock
+      public ServletEnvironment servlets() {
+    	  return servletEnv;
+      }
     };
+    
+    new MockUp<ServletEnvironment>() {        
+        @Mock
+        public FilterRegistration.Dynamic addFilter(String name, Class<? extends Filter> klass) {
+			return dynFilter;        
+        }
+      };
 
     new MockUp<DBIFactory>() {
 
