@@ -49,16 +49,16 @@ com.bitbosh.dropwizardheroku.client (HTTP Client to communicate with other Micro
     │   ├── java
     │   │   └── com
     │   │       └── dropwizardheroku
-	│   │	       	└── event    
-    │   │          		├── api
-    │   │           	├── service
-    │   │           	├── domain
-    │   │           	├── repositories
-    │   │           	├── gateways
-    │   │           	├── client
-    │   │           	├── Main.java
-    │   │           	├── ApplicationConfiguration.java
-    │   │           	├── ...
+    │   │	       	└── event    
+    │   │      			├── api
+    │   │           		├── service
+    │   │           		├── domain
+    │   │           		├── repositories
+    │   │           		├── gateways
+    │   │           		├── client
+    │   │           		├── Main.java
+    │   │           		├── ApplicationConfiguration.java
+    │   │           		├── ...
     │   └── resources
     │       ├── assets
     │       	├── component
@@ -69,14 +69,14 @@ com.bitbosh.dropwizardheroku.client (HTTP Client to communicate with other Micro
         │       └── dropwizardheroku
         │       	└── event
         │	           	├── api
-        │   	       	├── service
+        │   	       		├── service
         │       	   	├── domain
         │         		├── repositories
         │	           	├── gateways
-        │   	        ├── client
-        │       	    ├── MainUnitTest.java
-        │           	├── ApplicationConfigurationUnitTest.java
-        │           	├── ...
+        │   	        	├── client
+        │       	    	├── MainUnitTest.java
+        │           		├── ApplicationConfigurationUnitTest.java
+        │           		├── ...
         └── resources
             └── fixtures
 ```
