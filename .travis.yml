@@ -10,3 +10,7 @@ deploy:
   app: dropwizardheroku-event-service
   on:
     repo: damorton/dropwizardheroku-event-service
+notifications:
+  email:
+    on_success: never
+    on_failure: always
