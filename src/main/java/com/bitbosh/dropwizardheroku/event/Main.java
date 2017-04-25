@@ -1,7 +1,12 @@
 package com.bitbosh.dropwizardheroku.event;
 
 import java.net.URISyntaxException;
+import java.util.EnumSet;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.dropwizardheroku.event.api.EventResource;
@@ -37,6 +42,17 @@ public class Main extends Application<ApplicationConfiguration> {
     JerseyEnvironment jerseyEnvironment = environment.jersey();
     jerseyEnvironment.register(new ExampleResource());
     jerseyEnvironment.register(new EventResource(jdbi));
+    
+    // Enable CORS headers
+    final FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+
+    // Configure CORS parameters
+    cors.setInitParameter("allowedOrigins", "*");
+    cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+    cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+    // Add URL mapping
+    cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
   }
 
   private DBIFactory createDbiFactory() {
