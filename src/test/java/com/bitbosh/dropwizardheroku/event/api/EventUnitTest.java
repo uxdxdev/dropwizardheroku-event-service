@@ -12,12 +12,13 @@ public class EventUnitTest {
 
   @Test
   public void Event_constructedSuccessfully_IfDefaultCtorCalled() {
-    Event event = new Event();
     int expectedId = 0;
     String expectedName = "";
     String expectedLocation = "";
     String expectedDescription = "";
     Date expectedDate = new Date();
+
+    Event event = new Event();
 
     int actualId = event.getId();
     String actualName = event.getName();
@@ -29,7 +30,7 @@ public class EventUnitTest {
     assertEquals(expectedName, actualName);
     assertEquals(expectedLocation, actualLocation);
     assertEquals(expectedDescription, actualDescription);
-    // assertEquals(expectedDate, actualDate);
+    assertEquals(expectedDate, actualDate);
   }
 
   @Test
