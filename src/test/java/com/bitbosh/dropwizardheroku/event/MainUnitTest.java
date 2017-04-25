@@ -13,11 +13,15 @@ import com.bitbosh.dropwizardheroku.event.Main;
 import com.bitbosh.dropwizardheroku.event.api.EventResource;
 
 import io.dropwizard.Application;
+import io.dropwizard.Bundle;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.db.PooledDataSourceFactory;
 import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.jersey.setup.JerseyEnvironment;
 import io.dropwizard.jetty.setup.ServletEnvironment;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import mockit.Expectations;
 import mockit.Mock;
 import mockit.MockUp;
 import mockit.Mocked;
@@ -107,5 +111,25 @@ public class MainUnitTest {
 
     Main app = new Main();
     app.run(configuration, environment);
+  }
+  
+  @Test
+  public void initialize_(@Mocked Bootstrap<ApplicationConfiguration> configuration){
+	  
+	  AssetsBundle expectedBundle = new AssetsBundle("/test", "/");
+	  new MockUp<Bootstrap<ApplicationConfiguration>>(){		 		 
+		  
+		  @Mock
+		  public void addBundle(Bundle bundle){
+		  }
+	  };
+	  
+	  // test if the addBundle method is called in the initialize function
+	  new Expectations(){{
+		 configuration.addBundle(expectedBundle);		 
+	  }};
+	  
+	  Main app = new Main();
+	  app.initialize(configuration);
   }
 }
