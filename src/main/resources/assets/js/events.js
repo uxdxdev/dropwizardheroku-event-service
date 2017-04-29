@@ -41,7 +41,7 @@ var Events = React.createClass({
   }
 });
 
-var renderEventsComponentServer = function (eventList) {
+var renderServerEvents = function (eventList) {
   var data = Java.from(eventList);  
   return React.renderToString(
 	        React.createElement(Events, {events: data, pollInterval: 5000})
