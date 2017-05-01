@@ -61,6 +61,6 @@ public class Main extends Application<ApplicationConfiguration> {
 
   @Override
   public void initialize(Bootstrap<ApplicationConfiguration> configuration) {
-    configuration.addBundle(new AssetsBundle("/assets", "/"));
+    //configuration.addBundle(new AssetsBundle("/assets", "/"));
   }
 }
