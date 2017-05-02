@@ -45,4 +45,8 @@ dependencies {
     compile group: 'postgresql', name: 'postgresql', version:'9.1-901.jdbc4'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
+
 task stage(dependsOn: ['clean', 'installDist'])
