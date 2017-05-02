@@ -11,7 +11,7 @@ A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreS
 - Heroku config
 
 ```
-heroku config:set APP_OPTS-Ddw.server.connector.port=$PORT
+heroku config:set WEB_OPTS='-Ddw.server.connector.port=$PORT'
 ```
 
 - Clone repo
