@@ -6,6 +6,25 @@ https://dropwizardheroku-event-service.herokuapp.com/
 
 A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreSQL database.
 
+## Build
+
+- Heroku config
+
+```
+heroku config:set APP_OPTS-Ddw.server.connector.port=$PORT
+```
+
+- Clone repo
+```
+git clone https://github.com/damorton/dropwizardheroku-webgateway.git
+```
+- Build
+```
+cd dropwizardheroku-webgateway
+gradle build
+```
+
+
 ## API Endpoints for ExampleResource
 
 ```
