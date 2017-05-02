@@ -26,7 +26,7 @@ jacocoTestReport {
     }
 }
 
-applicationName = "app"
+applicationName = "dropwizardheroku-event-service"
 mainClassName = "com.bitbosh.dropwizardheroku.event.Main"
 group = 'com.bitbosh'
 version = '1.6'
@@ -43,10 +43,6 @@ dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-testing', version:'1.0.7'
     compile group: 'io.dropwizard', name: 'dropwizard-assets', version:'1.0.7'
     compile group: 'postgresql', name: 'postgresql', version:'9.1-901.jdbc4'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '1.6'
 }
 
 task stage(dependsOn: ['clean', 'installDist'])

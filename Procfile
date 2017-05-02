@@ -1,1 +1,1 @@
-web: ./build/install/app/bin/app server config.yml
+web: ./build/install/dropwizardheroku-event-service/bin/dropwizardheroku-event-service server config.yml
