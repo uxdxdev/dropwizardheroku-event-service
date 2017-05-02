@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin:'application'
 apply plugin: 'maven'
 apply plugin: 'jacoco'
 apply plugin: "com.github.kt3k.coveralls"
@@ -25,6 +26,8 @@ jacocoTestReport {
     }
 }
 
+applicationName = "app"
+mainClassName = "com.bitbosh.dropwizardheroku.event.Main"
 group = 'com.bitbosh'
 version = '1.6'
 
@@ -41,3 +44,5 @@ dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-assets', version:'1.0.7'
     compile group: 'postgresql', name: 'postgresql', version:'9.1-901.jdbc4'
 }
+
+task stage(dependsOn: ['clean', 'installDist'])
