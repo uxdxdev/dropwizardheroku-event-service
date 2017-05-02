@@ -21,7 +21,11 @@ git clone https://github.com/damorton/dropwizardheroku-webgateway.git
 - Build
 ```
 cd dropwizardheroku-webgateway
-gradle build
+./gradlew stage
+```
+- Run
+```
+heroku local
 ```
 
 
