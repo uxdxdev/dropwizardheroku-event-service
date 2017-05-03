@@ -1,29 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'maven'
 apply plugin: 'jacoco'
 apply plugin: "com.github.kt3k.coveralls"
 
-buildscript {
-  repositories {
-    maven {
-      url "https://plugins.gradle.org/m2/"
-    }
-  }
-  dependencies {
-    classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1"
-  }
-}
-
 repositories {
      maven { url "https://plugins.gradle.org/m2/" }
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
 }
 
 applicationName = "dropwizardheroku-event-service"
@@ -43,6 +24,24 @@ dependencies {
     compile group: 'io.dropwizard', name: 'dropwizard-testing', version:'1.0.7'
     compile group: 'io.dropwizard', name: 'dropwizard-assets', version:'1.0.7'
     compile group: 'postgresql', name: 'postgresql', version:'9.1-901.jdbc4'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.8.1"
+  }
 }
 
 task stage(dependsOn: ['clean', 'installDist'])
