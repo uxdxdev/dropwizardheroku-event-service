@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/damorton/dropwizardheroku-event-service.svg?branch=master)](https://travis-ci.org/damorton/dropwizardheroku-event-service) [![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizardheroku-event-service/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizardheroku-event-service?branch=master)
 
+##Browser client API 
+https://dropwizardheroku-webgateway.herokuapp.com/
+
+##Event Microservice
 https://dropwizardheroku-event-service.herokuapp.com/
 
 A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreSQL database.
