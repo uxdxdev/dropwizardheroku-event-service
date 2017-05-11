@@ -23,6 +23,6 @@ public interface EventDao {
   Event getEventByName(@Bind("name") String name);
 
   @Mapper(EventMapper.class)
-  @SqlQuery("select * from event")
+  @SqlQuery("select * from event where date > now()")
   List<Event> getEvents();
 }
