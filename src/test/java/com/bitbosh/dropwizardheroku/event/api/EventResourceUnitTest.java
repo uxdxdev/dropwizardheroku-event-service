@@ -227,9 +227,9 @@ public class EventResourceUnitTest {
 	    List<Event> actualList = (List<Event>) response.getList();
 	    
 	    // Check if events in list are ordered by Date
-	    assertEquals(newEvent, actualList.get(0));	    
-	    assertEquals(oldEvent, actualList.get(1));
-	    assertEquals(olderEvent, actualList.get(2));
+	    assertEquals(olderEvent, actualList.get(0));	    
+	    assertEquals(oldEvent, actualList.get(1));	    
+	    assertEquals(newEvent, actualList.get(2));
 	    	    
   }
 }
