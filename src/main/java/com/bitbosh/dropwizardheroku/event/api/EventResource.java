@@ -1,5 +1,7 @@
 package com.bitbosh.dropwizardheroku.event.api;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -27,6 +29,22 @@ public class EventResource {
   @GET
   public ApiResponse getEvents() {
     List<Event> eventList = eventDao.getEvents();
+    
+    // Sort events
+    // Arrange newest (index 0) to oldest (index N)
+    Collections.sort(eventList, new Comparator<Event>(){        
+		@Override
+		public int compare(Event event, Event otherEvent) {	
+			int result = 0;
+			if(otherEvent.getDate().before(event.getDate())){
+				result = 1;
+			} else if (event.getDate().before(otherEvent.getDate())){
+				return -1;
+			}
+			return result;
+		}
+    });      
+    
     ApiResponse response = new ApiResponse(eventList);
     return response;
   }

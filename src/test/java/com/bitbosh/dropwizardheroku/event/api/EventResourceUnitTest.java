@@ -3,15 +3,13 @@ package com.bitbosh.dropwizardheroku.event.api;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
 import org.skife.jdbi.v2.DBI;
 
-import com.bitbosh.dropwizardheroku.event.api.ApiResponse;
-import com.bitbosh.dropwizardheroku.event.api.Event;
-import com.bitbosh.dropwizardheroku.event.api.EventResource;
 import com.bitbosh.dropwizardheroku.event.repository.EventDao;
 
 import mockit.Expectations;
@@ -160,7 +158,7 @@ public class EventResourceUnitTest {
   @Test
   public void getEvents_returnsNull_IfEventListInjectedNull(@Mocked DBI jdbi, @Mocked EventDao eventDao) {
 
-    List<Event> expectedList = null;
+    List<Event> expectedList = new ArrayList();
 
     new Expectations() {
       {
@@ -181,5 +179,57 @@ public class EventResourceUnitTest {
     List<Event> actualList = (List<Event>) response.getList();
 
     assertEquals(expectedList, actualList);
+  }
+  
+  @Test
+  public void eventListSortedNewestToOldest(@Mocked DBI jdbi, @Mocked EventDao eventDao){
+	  List<Event> expectedList = new ArrayList<Event>();
+	  
+	  Event newEvent = new Event();
+	  newEvent.setName("New Event");
+	  newEvent.setDate(new Date());
+	  
+	  Event oldEvent = new Event();
+	  oldEvent.setName("Old Event");
+	  Calendar cal = Calendar.getInstance();
+	  cal.set(1970, 1, 1);
+	  Date date = cal.getTime();	  	  
+	  oldEvent.setDate(date);
+	  
+	  cal.set(1950, 1, 1);
+	  date = cal.getTime();
+	  Event olderEvent = new Event();
+	  olderEvent.setDate(date);
+
+	  // Add events out or order	  
+	  expectedList.add(olderEvent); // index 0
+	  expectedList.add(newEvent); // index 1
+	  expectedList.add(oldEvent); // index 2
+	  
+
+	  
+	    new Expectations() {
+	      {
+	        jdbi.onDemand(withAny(EventDao.class));
+	        result = eventDao;
+
+	        eventDao.createEventDatabaseTable();
+	        times = 1;
+
+	        eventDao.getEvents();
+	        result = expectedList;
+	        times = 1;
+	      }
+	    };
+
+	    EventResource eventResource = new EventResource(jdbi);
+	    ApiResponse response = eventResource.getEvents();
+	    List<Event> actualList = (List<Event>) response.getList();
+	    
+	    // Check if events in list are ordered by Date
+	    assertEquals(newEvent, actualList.get(0));	    
+	    assertEquals(oldEvent, actualList.get(1));
+	    assertEquals(olderEvent, actualList.get(2));
+	    	    
   }
 }

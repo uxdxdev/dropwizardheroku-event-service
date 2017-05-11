@@ -45,3 +45,4 @@ buildscript {
 }
 
 task stage(dependsOn: ['clean', 'installDist'])
+installDist.mustRunAfter clean
