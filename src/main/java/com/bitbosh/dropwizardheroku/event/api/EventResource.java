@@ -31,7 +31,6 @@ public class EventResource {
     List<Event> eventList = eventDao.getEvents();
     
     // Sort events
-    // Arrange newest (index 0) to oldest (index N)
     Collections.sort(eventList, new Comparator<Event>(){        
 		@Override
 		public int compare(Event event, Event otherEvent) {	
@@ -44,6 +43,9 @@ public class EventResource {
 			return result;
 		}
     });      
+    
+    // Arrange newest (index 0) to oldest (index N)
+    Collections.reverse(eventList);
     
     ApiResponse response = new ApiResponse(eventList);
     return response;
