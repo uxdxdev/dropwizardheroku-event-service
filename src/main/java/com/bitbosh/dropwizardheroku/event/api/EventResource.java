@@ -44,9 +44,6 @@ public class EventResource {
 		}
     });      
     
-    // Arrange newest (index 0) to oldest (index N)
-    Collections.reverse(eventList);
-    
     ApiResponse response = new ApiResponse(eventList);
     return response;
   }
