@@ -94,7 +94,7 @@ public class EventResourceUnitTest {
         eventDao.createEventDatabaseTable();
         times = 1;
 
-        eventDao.createEvent(event.getName(), event.getLocation(), event.getLocation(), event.getDate());
+        eventDao.createEvent(event.getName(), event.getLocation(), event.getDescription(), event.getDate());
         times = 1;
       }
     };
