@@ -57,6 +57,6 @@ public class EventResource {
 
   @POST
   public void createEvent(Event event) {
-    eventDao.createEvent(event.getName(), event.getLocation(), event.getLocation(), event.getDate());
+    eventDao.createEvent(event.getName(), event.getDescription(), event.getLocation(), event.getDate());
   }
 }
