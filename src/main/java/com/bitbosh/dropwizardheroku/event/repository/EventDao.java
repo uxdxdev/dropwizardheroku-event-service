@@ -26,7 +26,6 @@ public interface EventDao {
   @SqlQuery("select * from event where date > now()")
   List<Event> getEvents();
 
-  @Mapper(EventMapper.class)
   @SqlQuery("delete from event where id=:id")
   void deleteEventById(@Bind("id") int id);
 }
