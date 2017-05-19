@@ -47,7 +47,7 @@ public class Main extends Application<ApplicationConfiguration> {
     final FilterRegistration.Dynamic cors = environment.servlets().addFilter("CORS", CrossOriginFilter.class);
 
     // Configure CORS parameters
-    cors.setInitParameter("allowedOrigins", "*");
+    cors.setInitParameter("allowedOrigins", "https://dropwizardheroku-webgateway.herokuapp.com");
     cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
     cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
 
