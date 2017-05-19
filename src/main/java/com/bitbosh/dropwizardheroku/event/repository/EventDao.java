@@ -26,6 +26,6 @@ public interface EventDao {
   @SqlQuery("select * from event where date > now()")
   List<Event> getEvents();
 
-  @SqlQuery("delete from event where id=:id")
+  @SqlUpdate("delete from event where id=:id")
   void deleteEventById(@Bind("id") int id);
 }
