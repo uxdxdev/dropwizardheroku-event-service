@@ -27,5 +27,5 @@ public interface EventDao {
   List<Event> getEvents();
 
   @SqlUpdate("delete from event where id=:id")
-  void deleteEventById(@Bind("id") int id);
+  void deleteEventById(@Bind("id") Long id);
 }

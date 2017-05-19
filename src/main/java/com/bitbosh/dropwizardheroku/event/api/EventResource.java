@@ -16,6 +16,8 @@ import org.skife.jdbi.v2.DBI;
 
 import com.bitbosh.dropwizardheroku.event.repository.EventDao;
 
+import io.dropwizard.jersey.params.LongParam;
+
 @Path("/events")
 @Produces(MediaType.APPLICATION_JSON)
 public class EventResource {
@@ -63,8 +65,8 @@ public class EventResource {
   
   @DELETE
   @Path("/{id}")
-  public void deleteEventById(@PathParam("id") int id) {
-    eventDao.deleteEventById(id);
+  public void deleteEventById(@PathParam("id") LongParam id) {
+    eventDao.deleteEventById(id.get());
   }
   
 }
