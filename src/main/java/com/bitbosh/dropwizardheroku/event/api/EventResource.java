@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -59,4 +60,11 @@ public class EventResource {
   public void createEvent(Event event) {
     eventDao.createEvent(event.getName(), event.getLocation(), event.getDescription(), event.getDate());
   }
+  
+  @DELETE
+  @Path("/{id}")
+  public void deleteEventById(@PathParam("id") int id) {
+    eventDao.deleteEventById(id);
+  }
+  
 }
