@@ -2,11 +2,6 @@
 
 [![Build Status](https://travis-ci.org/damorton/dropwizardheroku-event-service.svg?branch=master)](https://travis-ci.org/damorton/dropwizardheroku-event-service) [![Coverage Status](https://coveralls.io/repos/github/damorton/dropwizardheroku-event-service/badge.svg?branch=master)](https://coveralls.io/github/damorton/dropwizardheroku-event-service?branch=master)
 
-## Browser client API 
-https://dropwizardheroku-webgateway.herokuapp.com/
-
-A Dropwizard Heroku Event Microservice deployed to Heroku with a hosted PostgreSQL database.
-
 ## Build 
 
 ### (Important: Set port number to something other than 8080 in order to run it locally with the Web API Gateway)
@@ -107,7 +102,3 @@ com.bitbosh.dropwizardheroku.client (HTTP Client to communicate with other Micro
         └── resources
             └── fixtures
 ```
-
-# Tutorial
-
-http://www.bitbosh.com/2017/04/microservices-with-dropwizard-on-heroku.html
